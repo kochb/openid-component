@@ -66,7 +66,7 @@ class OpenidAuthenticate extends BaseAuthenticate {
             (! $this->Openid->isOpenIDResponse())
         ) {
             // OpenID Step 1 - handle user's request to auth via openid
-            $this->Openid->authenticate($request->data[$this->settings['userModel']][$fields['openid']], $returnTo, $this->realm);
+            $this->Openid->authenticate($request->data[$this->settings['userModel']][$fields['openid']], $returnTo, $realm);
         } elseif ($this->Openid->isOpenIDResponse()) {
             // OpenID Step 2 - see if we recognize this user.
             $response = $this->Openid->getResponse($returnTo);
